@@ -7,7 +7,8 @@ class TestUserAuth:
             'password':'1234'
         }
 
-        response1 = requests.post('https://playground.learnqa.ru/api/user/login', data=data)
+        response1 = requests.post("https://playground.learnqa.ru/api/user/login", data=data)
+
 
         assert 'auth_sid' in response1.cookies, 'There is no auth cookie in the reponse'
         assert 'x-csrf-token' in response1.headers, 'There is no CSRF token header in the response'
@@ -18,7 +19,8 @@ class TestUserAuth:
         user_id_from_auth_method = response1.json()['user_id']
 
         response2 = requests.get(
-            'https://playground.learnqa.ru/api/user/auth',
+            "https://playground.learnqa.ru/api/user/auth",
+
             headers={'x-csrf-token':token},
             cookies={'auth_sid':auth_sid}
         )
