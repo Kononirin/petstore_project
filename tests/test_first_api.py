@@ -14,7 +14,7 @@ class TestFirstAPI:
         data = {"name": name}
 
         response_hello = requests.get(url, params=data)
-        assert response_hello.status_code == 200, "Wrong response code"
+        assert response_hello.status_code == 200, f"Expected status code 200, but status code actual {response_hello.status_code}"
 
         response_hello_dict = response_hello.json()
         assert "answer" in response_hello_dict, "There is no 'answer' in the response"
@@ -25,4 +25,4 @@ class TestFirstAPI:
             expect_response_text = f"Hello, {name}"
 
         actual_response_text = response_hello_dict["answer"]
-        assert actual_response_text == expect_response_text, "Actual text in the response is not correct"
+        assert actual_response_text == expect_response_text, f"Actual text - '{actual_response_text}' is not correct in the response"
