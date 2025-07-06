@@ -32,8 +32,8 @@ class TestUserAuth:
         )
 
         response_auth_json = response_auth.json()
-
-        assert 'user_id' in response_auth_json, 'There is no user id in the second response'
         user_id_from_check_method = response_auth_json['user_id']
 
-        assert user_id_from_auth_method == user_id_from_check_method, 'Users ids are not equals'
+        assert 'user_id' in response_auth_json, 'There is no user id in the second response'
+
+        assert user_id_from_auth_method == user_id_from_check_method, f"User {user_id_from_auth_method} not equals user {user_id_from_check_method}"
