@@ -36,7 +36,7 @@ class TestUserAuth:
         user_id_from_check_method = response_auth_json['user_id']
 
         assert 'user_id' in response_auth_json, 'There is no user id in the second response'
-
+        
         assert user_id_from_auth_method == user_id_from_check_method, f"User {user_id_from_auth_method} not equals user {user_id_from_check_method}"
 
     exclude_params = [
@@ -67,5 +67,3 @@ class TestUserAuth:
         user_id_from_check_method = response_auth.json()["user_id"]
 
         assert user_id_from_check_method == 0, f"User is authorized with condition {condition}"
-
-
