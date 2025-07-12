@@ -67,5 +67,3 @@ class TestUserAuth:
         user_id_from_check_method = response_auth.json()["user_id"]
 
         assert user_id_from_check_method == 0, f"User is authorized with condition {condition}"
-
-
